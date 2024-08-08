@@ -100,6 +100,9 @@ I'm not sure yet when to use it, compare to `record`.
   access to any `static` member.
 - `private protected`: within inheritance chain in the same assembly.
 
+  - This version of the book uses an outdated convention of private variable.
+    It's not recommended to prefix them with undrescore anymore.
+
 - [ ] TODO: https://haacked.com/archive/2012/07/05/turkish-i-problem-and-why-you-should-care.aspx/
 
 ### 6. Understanding Inheritance and Polymorphism
@@ -119,9 +122,33 @@ C#'s unchecked exception can't be caught and always crash the program.
 
 Exception C# has a `HelpLink` property! Quite thoughtful.
 
+### 8. Working with Interfaces
+
+- Interface can have `static` constructor?
+  -> Yes, to support setting default `static` members.
+- Interface with default implementation is explicit (can only be used as an
+  interface object, can't directly call method without casting).
+- Explicit interface implementation is to solve the [diamond problem][diamond]
+
+[diamond]: https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem
+
+> TODO (tai): `yield` and guard clause
+> https://codealoc.wordpress.com/2012/05/17/ienumerable-guard-clause-best-practice
+
+### 9. Understanding Object Lifetime
+
+why don't call `Dispose` in `Finalize`:
+
+https://stackoverflow.com/questions/732864/finalize-vs-dispose#comment544454_732878
+
+> Dispose may also dispose managed resources, which you don't want to touch from
+> your finalizer, as they may already have been finalized themselves.
+
+There's `Lazy<>` util class to defer object creation.
+
 ## Part IV. Advanced C# Programming
 
-ch 10 to 15
+### 10. Collections and Generics
 
 ## Part V. Programming with .NET Core Assemblies
 
