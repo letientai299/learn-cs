@@ -146,6 +146,30 @@ https://stackoverflow.com/questions/732864/finalize-vs-dispose#comment544454_732
 
 There's `Lazy<>` util class to defer object creation.
 
+### 10. Collections and Generics
+
+Nothing fancy.
+
+### 11. Advanced C# Language Features
+
+Many code examples are too verbose:
+
+- The explicit and implicit conversion would be simpler to demonstate (with less
+  code) by using concept like Celsius to Fahrenheit degree instead of Square and
+  Rectangle.
+- The `ReverseDigits` is bad in term of performance. I know that the target
+  audience of the book might not be skilled, but it's hard to ignore.
+
+`ref` vs pointer: https://stackoverflow.com/a/430115/3869533
+
+- `ref` can be moved/relocated by GC
+- Pointer is static, thus, need `fixed` keywords to prevent outer object from
+  being moved.
+
+### 12. Delegates, Events, and Lambda Expressions
+
+> TODO (tai): here
+
 ## Part IV. Advanced C# Programming
 
 ### 10. Collections and Generics

@@ -1,46 +1,42 @@
-﻿namespace Main;
+﻿namespace Example;
 
 internal static class Program
 {
   private static void Main()
   {
-    var c = new Car(100);
-    Log(c);
-    c.Speed = 51;
-    Log(c);
+    Base10 d = new("123");
+    Base2 b = new("01010101");
+    Log(d, b);
+    Base x = b;
+    Log(x.ToString());
+    Log(x.Val);
 
-    I1? a = new A();
-    a.Hi();
-    a = c as I1;
-    a.Hi();
+    d = b;
+    Log(d);
 
-    Console.WriteLine("--------");
-    var b = new A();
-    b.How();
+    b = new Base10("1234");
+    Log(b);
   }
 
-  interface I1
+  private sealed record Base2(string Data) : Base(2, Data)
   {
-    void Hi() => Console.WriteLine($"hi from I1: {GetType()}");
+    public override string ToString() => base.ToString();
+
+    public static implicit operator Base10(Base2 b) => new(b.Val.ToString());
   }
 
-  interface I2
+  private sealed record Base10(string Data) : Base(10, Data)
   {
-    void How();
+    public override string ToString() => base.ToString();
+
+    public static implicit operator Base2(Base10 v) =>
+      new(Convert.ToString(v.Val, 2));
   }
 
-  class A : I1, I2
+  private abstract record Base(int From, string Data)
   {
-    public void How() => Console.WriteLine($"howdy: {GetType()}");
-  }
+    public int Val { get; } = Convert.ToInt32(Data, From);
 
-  record Car(int MaxSpeed) : I1
-  {
-    public int Speed
-    {
-      get => speed;
-      set => speed = value < MaxSpeed ? value : MaxSpeed;
-    }
-    private int speed;
+    public override string ToString() => $"[base={From}, data={Data}] {Val}";
   }
 }
