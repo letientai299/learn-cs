@@ -1,13 +1,14 @@
-﻿using System.Text;
+﻿using System.Collections;
+using System.Text;
 using Arg = System.Runtime.CompilerServices.CallerArgumentExpressionAttribute;
 using File = System.Runtime.CompilerServices.CallerFilePathAttribute;
 using Line = System.Runtime.CompilerServices.CallerLineNumberAttribute;
 
-namespace Example;
+namespace Example.Utils;
 
 #pragma warning disable RCS1163 // Unused parameter
 #pragma warning disable IDE0060 // Remove unused parameter
-internal static partial class Utils
+internal static class Logs
 {
   private static readonly object MsgLock = new();
 
@@ -17,7 +18,10 @@ internal static partial class Utils
     [File] string path = "",
     [Line] int line = 0
 #pragma warning disable S3236 // Caller information arguments should not be provided explicitly
-  ) => Log(a?.GetType(), a, null, $"type of {arg}", arg, path, line);
+  )
+  {
+    Log(a?.GetType(), a, null, $"type of {arg}", arg, path, line);
+  }
 #pragma warning restore S3236 // Caller information arguments should not be provided explicitly
 
   public static void Log(
@@ -241,7 +245,7 @@ internal static partial class Utils
     {
       sb.Append('\t').Append(blue).Append(key).Append(reset).Append(" = ");
 
-      serialize(sb, val);
+      Serialize(sb, val);
       sb.AppendLine();
     }
 
@@ -253,15 +257,40 @@ internal static partial class Utils
     }
   }
 
-  private static void serialize(StringBuilder sb, dynamic? val)
+  private static void Serialize(StringBuilder sb, dynamic? val)
   {
-    if (val is null)
+    switch (val)
     {
-      sb.Append("null");
-      return;
+      case null:
+        sb.Append("null");
+        return;
+      case IEnumerable arr:
+      {
+        SerializeEnumerable(sb, arr);
+        return;
+      }
+      default:
+        sb.AppendFormat("{0}", val);
+        break;
+    }
+  }
+
+  private static void SerializeEnumerable(StringBuilder sb, IEnumerable arr)
+  {
+    var cnt = 0;
+    foreach (var v in arr)
+    {
+      sb.AppendFormat(cnt == 0 ? "[" : ", ");
+      cnt++;
+      sb.Append($"{v}");
     }
 
-    sb.AppendFormat("{0}", val);
+    if (cnt == 0)
+    {
+      sb.Append('[');
+    }
+
+    sb.Append(']');
   }
 }
 #pragma warning restore RCS1163 // Unused parameter

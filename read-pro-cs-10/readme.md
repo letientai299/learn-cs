@@ -168,7 +168,10 @@ Many code examples are too verbose:
 
 ### 12. Delegates, Events, and Lambda Expressions
 
-> TODO (tai): here
+`delegate`, `event` and then lambda. All are partly syntactic sugar and
+partly compiler magic with some special treatment for builtin types.
+
+### 13. LINQ to Objects
 
 ## Part IV. Advanced C# Programming
 

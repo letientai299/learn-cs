@@ -269,3 +269,6 @@ dotnet_diagnostic.S125.severity = none
 
 # SA1005: Single line comments should begin with single space
 dotnet_diagnostic.SA1005.severity = none
+
+# CA1307: Specify StringComparison for clarity
+dotnet_diagnostic.CA1307.severity = none

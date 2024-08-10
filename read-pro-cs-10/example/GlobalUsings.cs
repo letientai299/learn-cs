@@ -1,1 +1,1 @@
-﻿global using static Example.Utils;
+﻿global using static Example.Utils.Logs;
