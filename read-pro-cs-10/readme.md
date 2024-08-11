@@ -173,6 +173,22 @@ partly compiler magic with some special treatment for builtin types.
 
 ### 13. LINQ to Objects
 
+I can't help compare LINQ to SQL.
+
+- Like `offset` and `limit` in SQL, `Skip` and `Take` in LINQ is slow because it
+  needs to execute the filter on all skipped values before reaching the wanted
+  parts.
+- `Chunk` is not better, it's basically a pre-processed list.
+
+> TODO (tai): I need to find a way to do seek based pagination with LINQ. That means I need to
+> find the "indexing" equivalent in LINQ.
+
+### 14. Processes, AppDomains, and Load Contexts
+
+> TODO (tai): what was changed between .NET an .NET Core, and why?
+
+### 15. Multithreaded, Parallel, and Async Programming
+
 ## Part IV. Advanced C# Programming
 
 ### 10. Collections and Generics

@@ -5,15 +5,14 @@ root = true
 indent_style = space
 max_line_length = 80
 indent_size = 2
+tab_width = 2
+end_of_line = lf
 
 [GlobalUsings.cs]
 # trick VS to not reformat this file and remove all the unused `using`.
 generated_code = true
 
 [*.{cs,vb}]
-indent_size = 2
-tab_width = 2
-end_of_line = crlf
 
 #### Naming styles ####
 
