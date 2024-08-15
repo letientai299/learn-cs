@@ -22,7 +22,7 @@ function loadHighlightJS() {
 
 function makePreCode(txt) {
   const code = document.createElement("code");
-  txt = txt.replace(/[^\S\n\t]{2}/g, "    ");
+  txt = txt.replace(/[^\S\n]{2}/g, "  ");
   code.textContent = `\r${txt}`;
 
   const pre = document.createElement("pre");

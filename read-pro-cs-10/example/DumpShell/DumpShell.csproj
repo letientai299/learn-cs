@@ -29,6 +29,7 @@
 
     <ItemGroup>
       <None Remove="example.slnx" />
+      <None Remove="LibHello\**" />
     </ItemGroup>
 
   <ItemGroup>
@@ -73,6 +74,14 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="LibHello\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="LibHello\**" />
   </ItemGroup>
 
 </Project>

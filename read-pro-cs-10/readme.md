@@ -12,6 +12,8 @@
   - [x] Config vim
   - [x] Config for CI, git hooks, ...
 
+- [ ] Use packet instead of nuget?
+
 ## Terms
 
 Collected through the book.
@@ -188,6 +190,13 @@ I can't help compare LINQ to SQL.
 > TODO (tai): what was changed between .NET an .NET Core, and why?
 
 ### 15. Multithreaded, Parallel, and Async Programming
+
+Don't use `async void`, or excpetion won't be catchable.
+Use `async Task<T>` or `async ValueTask<T>` instead.
+
+### 16. Building and Configuring Class Libraries
+
+> TODO (tai): here,
 
 ## Part IV. Advanced C# Programming
 
