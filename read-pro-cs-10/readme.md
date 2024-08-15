@@ -13,6 +13,8 @@
   - [x] Config for CI, git hooks, ...
 
 - [ ] Use packet instead of nuget?
+- [ ] How to download all sources, so that "Go to definition" is faster
+- [ ] What makes MSBuild great?
 
 ## Terms
 
@@ -148,6 +150,8 @@ https://stackoverflow.com/questions/732864/finalize-vs-dispose#comment544454_732
 
 There's `Lazy<>` util class to defer object creation.
 
+## Part IV. Advanced C# Programming
+
 ### 10. Collections and Generics
 
 Nothing fancy.
@@ -194,17 +198,29 @@ I can't help compare LINQ to SQL.
 Don't use `async void`, or excpetion won't be catchable.
 Use `async Task<T>` or `async ValueTask<T>` instead.
 
-### 16. Building and Configuring Class Libraries
-
-> TODO (tai): here,
-
-## Part IV. Advanced C# Programming
-
-### 10. Collections and Generics
-
 ## Part V. Programming with .NET Core Assemblies
 
-ch 16 to 18
+### 16. Building and Configuring Class Libraries
+
+Done
+
+### 17. Type Reflection, Late Binding, Attribute, and Dynamic Types
+
+> TODO (tai): How does late binding work if the assembly is obfuscated?
+
+C# compiler is `csc.exe`.
+
+Attribute:
+
+- The reduction from `ObsoleteAttribute` to `Obsolete` when applying that
+  attribute is syntactic magic and convention. Full class name can be used. And
+  attribute class name doesn't need to be suffixed with `Attribute`.
+- Should be `sealed` for security reasons.
+- Can't target a specific inheritance chain.
+- `[assembly: ...]` applies to all types within the assembly.
+
+Can use `dynamic` to call methods from object created via reflection. This makes
+the code shorter, and less hard-coded strings.
 
 ## Part VI. File Handling, Object Serialization, and Data Access
 
