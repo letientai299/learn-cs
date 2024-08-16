@@ -15,6 +15,9 @@
 - [ ] Use packet instead of nuget?
 - [ ] How to download all sources, so that "Go to definition" is faster
 - [ ] What makes MSBuild great?
+- [ ] Write a note about C# survival guide for Golang developer, perhaps.
+  - Focus on DX, tooling
+  - Advanced concepts.
 
 ## Terms
 

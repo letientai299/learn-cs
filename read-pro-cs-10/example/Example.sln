@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileWatching", "FileWatchin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{5EA53362-017B-4B1B-8835-1369A11AE9B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serde", "Serde\Serde.csproj", "{DDB05D2B-AB6C-4FAA-91DB-107FD523620A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5EA53362-017B-4B1B-8835-1369A11AE9B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EA53362-017B-4B1B-8835-1369A11AE9B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EA53362-017B-4B1B-8835-1369A11AE9B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDB05D2B-AB6C-4FAA-91DB-107FD523620A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDB05D2B-AB6C-4FAA-91DB-107FD523620A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDB05D2B-AB6C-4FAA-91DB-107FD523620A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDB05D2B-AB6C-4FAA-91DB-107FD523620A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
