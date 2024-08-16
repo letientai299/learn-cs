@@ -1,13 +1,15 @@
-﻿using Example.Utils;
-using static System.Console;
+﻿using static System.Console;
+using static Utils.Colors;
+using static Utils.Logs;
 
 namespace Example;
 
 #pragma warning disable S1172
 internal static class Program
 {
+    private static readonly string DirSep = $"{Path.DirectorySeparatorChar}";
+
     private static bool done;
-    private static string dirSep = $"{Path.DirectorySeparatorChar}";
 
     private static void Main(string[] args)
     {
@@ -29,20 +31,20 @@ internal static class Program
 
     private static string Input()
     {
-        Write(Colors.Blue);
+        Write(Blue);
         Prompt();
         var cmd = ReadLine() ?? string.Empty;
-        Write(Colors.Reset);
+        Write(Reset);
         return cmd;
     }
 
     private static void Prompt()
     {
         var curDir = Directory.GetCurrentDirectory();
-        var dirs = curDir.Split(dirSep);
+        var dirs = curDir.Split(DirSep);
         var dirContext =
             dirs.Length > 3
-                ? $"...{dirSep}" + string.Join(dirSep, dirs.TakeLast(4))
+                ? $"...{DirSep}" + string.Join(DirSep, dirs.TakeLast(4))
                 : curDir;
         Write($"{dirContext}\n> ");
     }
@@ -58,7 +60,7 @@ internal static class Program
     private sealed record Cmd(Action<string[]> F, string Guide);
 
     private static readonly Cmd ExitCmd =
-        new((_) => done = true, "exit the application");
+        new(_ => done = true, "exit the application");
 
     private static readonly Dictionary<string, Cmd> Handlers =
         new()

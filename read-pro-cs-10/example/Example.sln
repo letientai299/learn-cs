@@ -5,7 +5,9 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DumpShell", "DumpShell\DumpShell.csproj", "{CA98FCDB-0332-4B94-B961-C70E7C414FEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App", "App\App.csproj", "{6F3BA954-201A-4D5E-B58A-3220F8489156}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileWatching", "FileWatching\FileWatching.csproj", "{6F3BA954-201A-4D5E-B58A-3220F8489156}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{5EA53362-017B-4B1B-8835-1369A11AE9B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6F3BA954-201A-4D5E-B58A-3220F8489156}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F3BA954-201A-4D5E-B58A-3220F8489156}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F3BA954-201A-4D5E-B58A-3220F8489156}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EA53362-017B-4B1B-8835-1369A11AE9B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EA53362-017B-4B1B-8835-1369A11AE9B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EA53362-017B-4B1B-8835-1369A11AE9B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EA53362-017B-4B1B-8835-1369A11AE9B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

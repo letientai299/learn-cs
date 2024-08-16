@@ -4,11 +4,11 @@ using Arg = System.Runtime.CompilerServices.CallerArgumentExpressionAttribute;
 using File = System.Runtime.CompilerServices.CallerFilePathAttribute;
 using Line = System.Runtime.CompilerServices.CallerLineNumberAttribute;
 
-namespace Example.Utils;
+namespace Utils;
 
 #pragma warning disable RCS1163 // Unused parameter
 #pragma warning disable IDE0060 // Remove unused parameter
-internal static class Logs
+public static class Logs
 {
     private static readonly object MsgLock = new();
 
@@ -20,6 +20,7 @@ internal static class Logs
 #pragma warning disable S3236 // Caller information arguments should not be provided explicitly
     )
     {
+        // ReSharper disable ExplicitCallerInfoArgument
         Log(a?.GetType(), a, null, $"type of {arg}", arg, path, line);
     }
 #pragma warning restore S3236 // Caller information arguments should not be provided explicitly

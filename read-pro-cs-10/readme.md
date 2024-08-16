@@ -222,9 +222,23 @@ Attribute:
 Can use `dynamic` to call methods from object created via reflection. This makes
 the code shorter, and less hard-coded strings.
 
+### 18. Understanding CIL and the Role of Dynamic Assemblies
+
+> TODO (tai): read this chapter
+
 ## Part VI. File Handling, Object Serialization, and Data Access
 
-ch 19 to 20
+### 19. File I/O and Object Serialization
+
+**The `NotifyFilters` enum doesn't have continous bits**. Got wondering if my
+bitwise skills is faulty! Can't assume that those flag enums has continous
+numbering. Damn!
+
+```cs
+~(~0 << Enum.GetValues<NotifyFilters>().Length; //  11111111
+var all = NotifyFilters.FileName |
+  NotifyFilters.DirectoryName | ...             // 101111111
+```
 
 ## Part VII. Entity Framework Core
 
@@ -232,7 +246,7 @@ ch 21 to 24
 
 ## Part VIII. Windows Client Development
 
-ch 25 to 29
+> TODO (tai): read this part.
 
 ## Part IX. ASP.NET Core
 
