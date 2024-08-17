@@ -2,7 +2,6 @@
 
 namespace Example;
 
-#pragma warning disable S1172
 internal static class Program
 {
     private static readonly string DirSep = $"{Path.DirectorySeparatorChar}";
@@ -126,13 +125,10 @@ internal static class Program
         {
             act();
         }
-#pragma warning disable CA1031
         catch (Exception exception)
-#pragma warning restore CA1031
         {
             Log(exception);
             WriteLine();
         }
     }
 }
-#pragma warning restore S1172

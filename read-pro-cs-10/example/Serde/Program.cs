@@ -44,24 +44,21 @@ public record Person(string Name, DateTime Date, List<Person>? Friends = null)
     [XmlIgnore]
     public List<Person>? Friends { get; set; } = Friends;
 
-#pragma warning disable IL2026
-#pragma warning disable IL3050
+    private static readonly JsonSerializerOptions JsonOption =
+        new()
+        {
+            WriteIndented = true,
+            // resolve reference cycle
+            ReferenceHandler = ReferenceHandler.Preserve,
+            TypeInfoResolver = CustomJsonContext.Default,
+        };
+
+#pragma warning disable IL2026, IL3050
     // IL2026 and IL3050 are false positive, confirmed.
     // https://github.com/dotnet/runtime/issues/51544#issuecomment-1516232559
     public override string ToString()
     {
-        return JsonSerializer.Serialize(
-            this,
-            typeof(Person),
-            new JsonSerializerOptions
-            {
-                WriteIndented = true,
-                // resolve reference cycle
-                ReferenceHandler = ReferenceHandler.Preserve,
-                TypeInfoResolver = CustomJsonContext.Default,
-            }
-        );
-#pragma warning restore IL2026
-#pragma warning disable IL3050
+        return JsonSerializer.Serialize(this, typeof(Person), JsonOption);
+#pragma warning restore IL2026, IL3050
     }
 }

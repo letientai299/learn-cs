@@ -10,4 +10,4 @@ namespace Example;
 [JsonSourceGenerationOptions(WriteIndented = true)]
 [JsonSerializable(typeof(Person))]
 [JsonSerializable(typeof(JsonElement))] // add this
-public partial class CustomJsonContext : JsonSerializerContext { }
+public partial class CustomJsonContext : JsonSerializerContext;

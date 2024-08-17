@@ -9,11 +9,12 @@ namespace Example.Utils;
 
 #pragma warning disable RCS1163 // Unused parameter
 #pragma warning disable IDE0060 // Remove unused parameter
+// ReSharper disable UnusedParameter.Global
 public static class Logs
 {
     private static readonly object MsgLock = new();
 
-    public static void LogTV(
+    public static void LogTv(
         object? a,
         [Arg(nameof(a))] string arg = "",
         [File] string path = "",
