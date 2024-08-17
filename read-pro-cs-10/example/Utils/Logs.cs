@@ -5,7 +5,7 @@ using Arg = System.Runtime.CompilerServices.CallerArgumentExpressionAttribute;
 using File = System.Runtime.CompilerServices.CallerFilePathAttribute;
 using Line = System.Runtime.CompilerServices.CallerLineNumberAttribute;
 
-namespace Example;
+namespace Example.Utils;
 
 #pragma warning disable RCS1163 // Unused parameter
 #pragma warning disable IDE0060 // Remove unused parameter
@@ -257,7 +257,7 @@ public static class Logs
 
         lock (MsgLock)
         {
-            Console.Write(output);
+            Write(output);
         }
     }
 

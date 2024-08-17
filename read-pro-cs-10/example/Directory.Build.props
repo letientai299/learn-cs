@@ -1,13 +1,30 @@
 <Project>
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>Example</RootNamespace>
+    <RootNamespace>Example.$(ProjectName)</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PublishAot>true</PublishAot>
     <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
 
+  <!-- Common internal dependencies -->
+  <ItemGroup>
+    <ProjectReference
+      Include="..\Utils\Utils.csproj"
+      Condition="'$(ProjectName)' != 'Utils'"
+    />
+
+    <Using
+      Static="True"
+      Include="Example.Utils.Logs"
+      Condition="'$(ProjectName)' != 'Utils'"
+    />
+
+    <Using Static="True" Include="System.Console" />
+  </ItemGroup>
+
+  <!-- Analyzer configs -->
   <PropertyGroup>
     <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
@@ -18,6 +35,7 @@
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
 
+  <!-- Analyzers and common external dependencies -->
   <ItemGroup>
     <PackageReference Include="CSharpier.MsBuild" Version="0.28.2">
       <IncludeAssets>

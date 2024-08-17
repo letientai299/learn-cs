@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Xml.Serialization;
-using static Example.Logs;
+using Example;
 
 var a = new Person("A", DateTime.Now.AddDays(-1));
 var p = new Person(
@@ -28,7 +28,7 @@ xml.Serialize(buf, p);
 #pragma warning restore IL2026
 Log(buf);
 
-Console.WriteLine();
+WriteLine();
 
 // XML serialized force this to be public,
 // because we don't use source gen like JSON.
@@ -58,7 +58,7 @@ public record Person(string Name, DateTime Date, List<Person>? Friends = null)
                 WriteIndented = true,
                 // resolve reference cycle
                 ReferenceHandler = ReferenceHandler.Preserve,
-                TypeInfoResolver = Example.CustomJsonContext.Default,
+                TypeInfoResolver = CustomJsonContext.Default,
             }
         );
 #pragma warning restore IL2026

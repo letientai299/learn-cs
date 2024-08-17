@@ -11,7 +11,7 @@ var watcher = new FileSystemWatcher(target)
 };
 
 watcher.Changed += (sender, args) =>
-    Console.WriteLine(
+    WriteLine(
         $"{sender}:"
             + $"\n  ChangeType: {args.ChangeType}"
             + $"\n  FullPath: {args.FullPath}"
@@ -19,7 +19,7 @@ watcher.Changed += (sender, args) =>
     );
 
 watcher.Created += (sender, args) =>
-    Console.WriteLine(
+    WriteLine(
         $"{sender}:"
             + $"\n  ChangeType: {args.ChangeType}"
             + $"\n  FullPath: {args.FullPath}"
@@ -27,7 +27,7 @@ watcher.Created += (sender, args) =>
     );
 
 watcher.Deleted += (sender, args) =>
-    Console.WriteLine(
+    WriteLine(
         $"{sender}:"
             + $"\n  ChangeType: {args.ChangeType}"
             + $"\n  FullPath: {args.FullPath}"
@@ -35,7 +35,7 @@ watcher.Deleted += (sender, args) =>
     );
 
 watcher.Renamed += (sender, args) =>
-    Console.WriteLine(
+    WriteLine(
         $"{sender}:"
             + $"\n  ChangeType: {args.ChangeType}"
             + $"\n  OldFullPath: {args.OldFullPath}"
@@ -46,7 +46,7 @@ watcher.Renamed += (sender, args) =>
 
 watcher.EnableRaisingEvents = true; // begin watching
 
-Console.WriteLine($"watching {target}");
-Console.WriteLine("Press any key to stop");
-Console.ReadKey();
+WriteLine($"watching {target}");
+WriteLine("Press any key to stop");
+ReadKey();
 watcher.Dispose();

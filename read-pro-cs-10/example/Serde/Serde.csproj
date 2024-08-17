@@ -2,8 +2,4 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Utils\Utils.csproj" />
-  </ItemGroup>
 </Project>
