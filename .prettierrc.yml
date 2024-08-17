@@ -1,0 +1,9 @@
+printWidth: 80
+proseWrap: always
+useTabs: false
+tabWidth: 2
+overrides:
+  - files: ["*.props", "*.csproj"]
+    options:
+      parser: html
+      htmlWhitespaceSensitivity: ignore

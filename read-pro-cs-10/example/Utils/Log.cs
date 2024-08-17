@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Text;
+using Utils;
 using Arg = System.Runtime.CompilerServices.CallerArgumentExpressionAttribute;
 using File = System.Runtime.CompilerServices.CallerFilePathAttribute;
 using Line = System.Runtime.CompilerServices.CallerLineNumberAttribute;
 
-namespace Utils;
+namespace Example;
 
 #pragma warning disable RCS1163 // Unused parameter
 #pragma warning disable IDE0060 // Remove unused parameter
@@ -246,7 +247,9 @@ public static class Logs
                 .Append(Colors.Reset)
                 .Append(" = ");
 
+#pragma warning disable IL2026
             Serialize(sb, val);
+#pragma warning restore IL2026
             sb.AppendLine();
         }
 
@@ -271,7 +274,9 @@ public static class Logs
                 return;
             }
             default:
+#pragma warning disable IL2026
                 sb.AppendFormat("{0}", val);
+#pragma warning restore IL2026
                 break;
         }
     }

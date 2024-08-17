@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Xml.Serialization;
-using static Utils.Logs;
+using static Example.Logs;
 
 var a = new Person("A", DateTime.Now.AddDays(-1));
 var p = new Person(
@@ -33,7 +33,7 @@ Console.WriteLine();
 // XML serialized force this to be public,
 // because we don't use source gen like JSON.
 [Serializable]
-public record Person(string Name, DateTime Date, Person[]? Friends = null)
+public record Person(string Name, DateTime Date, List<Person>? Friends = null)
 {
     // ReSharper disable once UnusedMember.Local
     // required by XML serialization
@@ -42,7 +42,7 @@ public record Person(string Name, DateTime Date, Person[]? Friends = null)
 
     // ignored because I don't know how to fix ref-cycle in XML
     [XmlIgnore]
-    public Person[]? Friends { get; set; } = Friends;
+    public List<Person>? Friends { get; set; } = Friends;
 
 #pragma warning disable IL2026
 #pragma warning disable IL3050
@@ -58,16 +58,10 @@ public record Person(string Name, DateTime Date, Person[]? Friends = null)
                 WriteIndented = true,
                 // resolve reference cycle
                 ReferenceHandler = ReferenceHandler.Preserve,
-                TypeInfoResolver = CustomJsonContext.Default,
+                TypeInfoResolver = Example.CustomJsonContext.Default,
             }
         );
 #pragma warning restore IL2026
 #pragma warning disable IL3050
     }
 }
-
-// TODO (tai): can this be simpler, like a single annotation on the class or record itself?
-[JsonSourceGenerationOptions(WriteIndented = true)]
-[JsonSerializable(typeof(Person))]
-[JsonSerializable(typeof(JsonElement))] // add this
-public partial class CustomJsonContext : JsonSerializerContext { }

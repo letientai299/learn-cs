@@ -49,3 +49,4 @@ watcher.EnableRaisingEvents = true; // begin watching
 Console.WriteLine($"watching {target}");
 Console.WriteLine("Press any key to stop");
 Console.ReadKey();
+watcher.Dispose();

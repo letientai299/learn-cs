@@ -8,6 +8,10 @@ indent_size = 4
 tab_width = 4
 end_of_line = lf
 
+[*.{xml,csproj,props,targets}]
+indent_size = 2
+indent_style = space
+
 [GlobalUsings.cs]
 # trick VS to not reformat this file and remove all the unused `using`.
 generated_code = true

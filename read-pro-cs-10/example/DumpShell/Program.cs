@@ -1,6 +1,6 @@
 ﻿using static System.Console;
+using static Example.Logs;
 using static Utils.Colors;
-using static Utils.Logs;
 
 namespace Example;
 

@@ -11,6 +11,8 @@
 
   - [x] Config vim
   - [x] Config for CI, git hooks, ...
+  - [ ] Rider seems to not respect editorconfig `end_of_line`
+        https://youtrack.jetbrains.com/issue/IJPL-30213/EditorConfig-endofline-not-respected-for-new-files
 
 - [ ] Use packet instead of nuget?
 - [ ] How to download all sources, so that "Go to definition" is faster
@@ -110,7 +112,8 @@ I'm not sure yet when to use it, compare to `record`.
   - This version of the book uses an outdated convention of private variable.
     It's not recommended to prefix them with undrescore anymore.
 
-- [ ] TODO: https://haacked.com/archive/2012/07/05/turkish-i-problem-and-why-you-should-care.aspx/
+- [ ] TODO:
+      https://haacked.com/archive/2012/07/05/turkish-i-problem-and-why-you-should-care.aspx/
 
 ### 6. Understanding Inheritance and Polymorphism
 
@@ -131,13 +134,14 @@ Exception C# has a `HelpLink` property! Quite thoughtful.
 
 ### 8. Working with Interfaces
 
-- Interface can have `static` constructor?
-  -> Yes, to support setting default `static` members.
+- Interface can have `static` constructor? -> Yes, to support setting default
+  `static` members.
 - Interface with default implementation is explicit (can only be used as an
   interface object, can't directly call method without casting).
 - Explicit interface implementation is to solve the [diamond problem][diamond]
 
-[diamond]: https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem
+[diamond]:
+  https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem
 
 > TODO (tai): `yield` and guard clause
 > https://codealoc.wordpress.com/2012/05/17/ienumerable-guard-clause-best-practice
@@ -177,8 +181,8 @@ Many code examples are too verbose:
 
 ### 12. Delegates, Events, and Lambda Expressions
 
-`delegate`, `event` and then lambda. All are partly syntactic sugar and
-partly compiler magic with some special treatment for builtin types.
+`delegate`, `event` and then lambda. All are partly syntactic sugar and partly
+compiler magic with some special treatment for builtin types.
 
 ### 13. LINQ to Objects
 
@@ -189,8 +193,8 @@ I can't help compare LINQ to SQL.
   parts.
 - `Chunk` is not better, it's basically a pre-processed list.
 
-> TODO (tai): I need to find a way to do seek based pagination with LINQ. That means I need to
-> find the "indexing" equivalent in LINQ.
+> TODO (tai): I need to find a way to do seek based pagination with LINQ. That
+> means I need to find the "indexing" equivalent in LINQ.
 
 ### 14. Processes, AppDomains, and Load Contexts
 
@@ -198,8 +202,8 @@ I can't help compare LINQ to SQL.
 
 ### 15. Multithreaded, Parallel, and Async Programming
 
-Don't use `async void`, or excpetion won't be catchable.
-Use `async Task<T>` or `async ValueTask<T>` instead.
+Don't use `async void`, or excpetion won't be catchable. Use `async Task<T>` or
+`async ValueTask<T>` instead.
 
 ## Part V. Programming with .NET Core Assemblies
 
@@ -242,6 +246,21 @@ numbering. Damn!
 var all = NotifyFilters.FileName |
   NotifyFilters.DirectoryName | ...             // 101111111
 ```
+
+### 20. Data Access with ADO.NET
+
+.NET porducts naming and rebranding is super confusing.
+
+- EF is old, no longer active developed.
+- EF Core is the new and only EF from now on.
+- .NET framework, then .NET then .NET Core.
+
+WTF is _Core_? If there is a Core, then there much be something more. But, there
+are none. Why don't just drop all the "Core" entirely, bump the version number
+to indicate breaking change?
+
+ADO come from windows COM-based system. AOD.NET is the similar thing for .NET.
+It's not equivalent to ADO (i.e. tons of incompatible stuffs).
 
 ## Part VII. Entity Framework Core
 
