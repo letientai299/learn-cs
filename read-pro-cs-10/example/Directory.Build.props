@@ -4,11 +4,24 @@
     <RootNamespace>Example.$(ProjectName)</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <PublishAot>true</PublishAot>
     <InvariantGlobalization>true</InvariantGlobalization>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
+  <!--
+    TODO:
+      learn more about why AOT can't be used with EF,
+      any how to write this conditional config.
+  -->
+  <!--  <PropertyGroup Condition="'$(ProjectName)' != 'TryEF'">-->
+  <!--    <PublishAot>true</PublishAot>-->
+  <!--  </PropertyGroup>-->
+
+  <PropertyGroup Condition="'$(ProjectName)' == 'TryEF'">
+    <PublishAot>false</PublishAot>
+  </PropertyGroup>
+
+  <Import Project="./build/versions.props" />
   <Import Project="./build/deps.props" />
   <Import Project="./build/analyzers.props" />
 </Project>

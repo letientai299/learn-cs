@@ -41,9 +41,11 @@
     </PackageReference>
 
     <!-- Logic, performance and everything else -->
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="8.0.7" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Analyzers" Version="8.0.8" />
-    <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.10.48">
+    <PackageReference
+      Include="Microsoft.AspNetCore.Components.Analyzers"
+      Version="$(NETCoreVersion)"
+    />
+    <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.11.20">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>
         runtime; build; native; contentfiles; analyzers; buildtransitive

@@ -151,14 +151,14 @@ csharp_style_namespace_declarations = block_scoped:silent
 csharp_style_prefer_method_group_conversion = true:silent
 csharp_style_prefer_top_level_statements = true:silent
 csharp_style_prefer_primary_constructors = true:suggestion
-csharp_style_expression_bodied_methods = false:none
-csharp_style_expression_bodied_constructors = false:silent
-csharp_style_expression_bodied_operators = false:silent
+csharp_style_expression_bodied_methods = true:none
+csharp_style_expression_bodied_constructors = true:silent
+csharp_style_expression_bodied_operators = true:silent
 csharp_style_expression_bodied_properties = true:silent
 csharp_style_expression_bodied_indexers = true:silent
 csharp_style_expression_bodied_accessors = true:silent
 csharp_style_expression_bodied_lambdas = true:silent
-csharp_style_expression_bodied_local_functions = false:none
+csharp_style_expression_bodied_local_functions = true:none
 csharp_space_around_binary_operators = before_and_after
 csharp_style_allow_embedded_statements_on_same_line_experimental = true:silent
 
@@ -275,3 +275,10 @@ dotnet_diagnostic.CS1591.severity = none
 # S3903: Types should be defined in named namespaces
 dotnet_diagnostic.S3903.severity = none
 
+# File should contains a single type.
+# Not sure if this is usable on real project.
+dotnet_diagnostic.SA1402.severity = none
+
+# Parameter names should match base declaration and other partial definitions
+# No, I don't think it's necessary
+dotnet_diagnostic.S927.severity = none

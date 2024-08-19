@@ -12,9 +12,3 @@ MySql.Try(pw);
 
 Header("SQL Server");
 SqlServer.Try(DotNetEnv.Env.GetString("DUMMY_PW_SS"));
-return;
-
-static void Header(string s) =>
-    WriteLine(
-        $"\n\n{s, -10} {string.Concat(Enumerable.Repeat("-", 60).ToArray())}\n"
-    );

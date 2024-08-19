@@ -12,7 +12,13 @@ namespace Example.Utils;
 // ReSharper disable UnusedParameter.Global
 public static class Logs
 {
+    private const string Line =
+        "------------------------------------------------------------";
+
     private static readonly object MsgLock = new();
+
+    public static void Header(string s) =>
+        WriteLine($"\n{Colors.BoldCyan}{s}\n{Line}{Colors.Reset}");
 
     public static void LogTv(
         object? a,
@@ -288,17 +294,11 @@ public static class Logs
         var cnt = 0;
         foreach (var v in arr)
         {
-            sb.AppendFormat(cnt == 0 ? "[" : ", ");
+            sb.AppendLine(cnt == 0 ? "[" : ", ");
+            sb.Append($"  {cnt, -3} ->  {v}");
             cnt++;
-            sb.Append($"{v}");
         }
-
-        if (cnt == 0)
-        {
-            sb.Append('[');
-        }
-
-        sb.Append(']');
+        sb.AppendLine(cnt == 0 ? "[]" : "\n]");
     }
 }
 #pragma warning restore RCS1163 // Unused parameter

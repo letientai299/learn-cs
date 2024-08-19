@@ -2,12 +2,21 @@
 
 public static class Fs
 {
-    public static string FindUp(string fileName, string dir = "")
+    public static string TopBinDir()
+    {
+        var editorConfig = FindUp(".editorconfig");
+        var solutionDir = Path.GetDirectoryName(editorConfig);
+        var dir = Path.Join(solutionDir, "bin");
+        Directory.CreateDirectory(dir);
+        return dir;
+    }
+
+    public static string FindUp(string name, string dir = "")
     {
         dir = dir.Length != 0 ? dir : Directory.GetCurrentDirectory();
         while (dir != "/")
         {
-            var files = Directory.GetFiles(dir, fileName);
+            var files = Directory.GetFileSystemEntries(dir, name);
             if (files.Length == 1)
             {
                 return files[0];
