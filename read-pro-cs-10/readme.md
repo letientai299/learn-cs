@@ -21,6 +21,7 @@
   - Focus on DX, tooling
   - Advanced concepts.
 - [ ] Learn to fix Rider reports on memory allocations.
+- [ ] How to lint and trim unused dependencies, e.g. `go mod tidy`?
 
 ## Terms
 
@@ -263,6 +264,11 @@ to indicate breaking change?
 ADO come from windows COM-based system. AOD.NET is the similar thing for .NET.
 It's not equivalent to ADO (i.e. tons of incompatible stuffs).
 
+`npgsql` seems to be the only driver for PG in .NET world. Some good links:
+
+- https://www.roji.org/prepared-statements-in-npgsql-3-2 (has some important
+  caveat if using npgsql conn-pools with other PG conn-pooler.)
+
 ## Part VII. Entity Framework Core
 
 ch 21 to 24
@@ -273,4 +279,11 @@ ch 21 to 24
 
 ## Part IX. ASP.NET Core
 
-ch 30 to 34
+### 30. Introducing ASP.NET Core
+
+ASP.NET was rewrote to get rid of `System.Web` for cross platform support.
+
+[Kestrel][kestrel]: lightweight, fast OOS webserver.
+
+[kestrel]:
+  https://learn.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-8.0

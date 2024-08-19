@@ -269,11 +269,12 @@ public static class Logs
             case null:
                 sb.Append("null");
                 return;
+            case string s:
+                sb.Append(s);
+                return;
             case IEnumerable arr:
-            {
                 SerializeEnumerable(sb, arr);
                 return;
-            }
             default:
 #pragma warning disable IL2026
                 sb.AppendFormat("{0}", val);

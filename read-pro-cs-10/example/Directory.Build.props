@@ -21,6 +21,12 @@
       Condition="'$(ProjectName)' != 'Utils'"
     />
 
+    <Using
+      Static="True"
+      Include="Example.Utils.Fs"
+      Condition="'$(ProjectName)' != 'Utils'"
+    />
+
     <Using Static="True" Include="System.Console" />
   </ItemGroup>
 
