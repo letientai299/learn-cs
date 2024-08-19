@@ -270,6 +270,17 @@ It's not equivalent to ADO (i.e. tons of incompatible stuffs).
 - https://www.roji.org/prepared-statements-in-npgsql-3-2 (has some important
   caveat if using npgsql conn-pools with other PG conn-pooler.)
 
+`Read` vs `NextResult`:
+
+- `Command` in ADO.NET can produces multiple result sets, e.g.
+  `selct ...; select ...;`.
+
+- `Read` is used to iterate within a single result set.
+- `NextResult` is used to iterate to the **next result set**.
+
+Cool too known. Might be useful one day. I haven't tried this in Golang and
+Java, but similar features must exists.
+
 ## Part VII. Entity Framework Core
 
 ch 21 to 24

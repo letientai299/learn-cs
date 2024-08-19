@@ -10,12 +10,8 @@ end_of_line = lf
 
 [*.{xml,csproj,props,targets}]
 indent_size = 2
-indent_style = space
 
-[GlobalUsings.cs]
-# trick VS to not reformat this file and remove all the unused `using`.
-generated_code = true
-
+# noinspection EditorConfigKeyCorrectness
 [*.{cs,vb}]
 
 #### Naming styles ####
@@ -54,11 +50,6 @@ dotnet_naming_style.begins_with_i.required_prefix = I
 dotnet_naming_style.begins_with_i.required_suffix =
 dotnet_naming_style.begins_with_i.word_separator =
 dotnet_naming_style.begins_with_i.capitalization = pascal_case
-
-dotnet_naming_style.pascal_case.required_prefix =
-dotnet_naming_style.pascal_case.required_suffix =
-dotnet_naming_style.pascal_case.word_separator =
-dotnet_naming_style.pascal_case.capitalization = pascal_case
 
 dotnet_naming_style.pascal_case.required_prefix =
 dotnet_naming_style.pascal_case.required_suffix =
@@ -283,3 +274,7 @@ dotnet_diagnostic.CA1050.severity = none
 # Complete the task instead of leaving TODO
 # Nope! I need TODO.
 dotnet_diagnostic.S1135.severity = none
+
+# Single line comments should not be followed by blank line.
+# This disallows commented code, isn't suitable for using in this learning repo.
+dotnet_diagnostic.SA1512.severity = none

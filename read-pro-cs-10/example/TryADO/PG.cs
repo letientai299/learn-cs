@@ -3,11 +3,11 @@
 internal static class Pg
 {
     private const string ConnectionString =
-        "Host=localhost;Username=postgres;Password=123;Database=postgres";
+        "Host=localhost;Username=postgres;Password={0};Database=postgres";
 
-    internal static void Try()
+    internal static void Try(string pw)
     {
-        var db = NpgsqlDataSource.Create(ConnectionString);
+        var db = NpgsqlDataSource.Create(string.Format(ConnectionString, pw));
 
         var initSqlPath = FindUp("init.sql");
         Log(initSqlPath);

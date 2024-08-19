@@ -1,14 +1,13 @@
-﻿using Microsoft.VisualBasic;
-using MySqlConnector;
+﻿using MySqlConnector;
 
 public static class MySql
 {
     private const string ConnectionString =
-        "Server=localhost;User ID=root;Password=123;Database=mysql";
+        "Server=localhost;User ID=root;Password={0};Database=mysql";
 
-    internal static void Try()
+    internal static void Try(string pw)
     {
-        using var db = new MySqlConnection(ConnectionString);
+        using var db = new MySqlConnection(string.Format(ConnectionString, pw));
         db.Open(); // TODO (tai): need to close the connection?
 
         using var read = db.CreateCommand();
