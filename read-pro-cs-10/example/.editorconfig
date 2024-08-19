@@ -280,3 +280,6 @@ dotnet_diagnostic.CA1307.severity = none
 dotnet_diagnostic.CA1050.severity = none
 
 
+# Complete the task instead of leaving TODO
+# Nope! I need TODO.
+dotnet_diagnostic.S1135.severity = none

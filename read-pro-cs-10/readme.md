@@ -22,6 +22,7 @@
   - Advanced concepts.
 - [ ] Learn to fix Rider reports on memory allocations.
 - [ ] How to lint and trim unused dependencies, e.g. `go mod tidy`?
+- [ ] fmt: auto remove unused `using`.
 
 ## Terms
 
