@@ -7,3 +7,4 @@ overrides:
     options:
       parser: html
       htmlWhitespaceSensitivity: ignore
+      printWidth: 100

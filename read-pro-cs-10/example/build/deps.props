@@ -1,0 +1,14 @@
+﻿<Project>
+  <!-- Common internal dependencies -->
+  <ItemGroup Label="internal depedencies">
+    <ProjectReference Include="..\Utils\Utils.csproj" Condition="'$(ProjectName)' != 'Utils'" />
+    <Using Static="True" Include="Example.Utils.Logs" Condition="'$(ProjectName)' != 'Utils'" />
+    <Using Static="True" Include="Example.Utils.Fs" Condition="'$(ProjectName)' != 'Utils'" />
+    <Using Static="True" Include="System.Console" />
+  </ItemGroup>
+
+  <!-- Common dependencies that are usable for all projects -->
+  <ItemGroup Label="common external depedencies">
+    <PackageReference Include="DotNetEnv" Version="3.1.0" />
+  </ItemGroup>
+</Project>

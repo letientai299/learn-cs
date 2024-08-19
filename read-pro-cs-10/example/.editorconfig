@@ -10,6 +10,7 @@ end_of_line = lf
 
 [*.{xml,csproj,props,targets}]
 indent_size = 2
+max_line_length = 100
 
 # noinspection EditorConfigKeyCorrectness
 [*.{cs,vb}]
@@ -183,6 +184,8 @@ csharp_style_implicit_object_creation_when_type_is_apparent = true:suggestion
 csharp_style_prefer_tuple_swap = true:suggestion
 csharp_style_prefer_utf8_string_literals = true:suggestion
 
+# Remove unused using
+dotnet_diagnostic.IDE0005.severity = error
 
 # CA1303: Do not pass literals as localized parameters
 dotnet_diagnostic.CA1303.severity = none
@@ -192,7 +195,6 @@ dotnet_diagnostic.CA1305.severity = none
 
 # SA1601: Partial elements should be documented
 dotnet_diagnostic.SA1601.severity = none
-
 
 # IDE0022: Use block body for method
 dotnet_diagnostic.IDE0022.severity = none
@@ -233,16 +235,6 @@ dotnet_diagnostic.SA1602.severity = none
 # IDE0040: Add accessibility modifiers
 dotnet_diagnostic.IDE0040.severity = none
 
-# NOTE: not a good idea to disable this rule in real project.
-# S3903: Types should be defined in named namespaces
-dotnet_diagnostic.S3903.severity = none
-
-# SA1649: File name should match first type name
-dotnet_diagnostic.SA1649.severity = none
-
-# SA1400: Access modifier should be declared
-dotnet_diagnostic.SA1400.severity = none
-
 # RCS1110: Declare type inside namespace
 dotnet_diagnostic.RCS1110.severity = none
 
@@ -261,15 +253,11 @@ dotnet_diagnostic.CS8803.severity = none
 # S125: Sections of code should not be commented out
 dotnet_diagnostic.S125.severity = none
 
-# SA1005: Single line comments should begin with single space
-dotnet_diagnostic.SA1005.severity = none
-
 # CA1307: Specify StringComparison for clarity
 dotnet_diagnostic.CA1307.severity = none
 
 # Declare type in namespace
 dotnet_diagnostic.CA1050.severity = none
-
 
 # Complete the task instead of leaving TODO
 # Nope! I need TODO.
@@ -278,3 +266,12 @@ dotnet_diagnostic.S1135.severity = none
 # Single line comments should not be followed by blank line.
 # This disallows commented code, isn't suitable for using in this learning repo.
 dotnet_diagnostic.SA1512.severity = none
+
+# Disable compiler warning for missing XML docs on public types.
+dotnet_diagnostic.CS1591.severity = none
+
+
+# NOTE: not a good idea to disable this rule in real project.
+# S3903: Types should be defined in named namespaces
+dotnet_diagnostic.S3903.severity = none
+

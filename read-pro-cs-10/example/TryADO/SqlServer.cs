@@ -1,8 +1,7 @@
 ﻿using System.Data;
 using Microsoft.Data.SqlClient;
-using Microsoft.IdentityModel.Protocols.Configuration;
 
-public static class SqlServer
+internal static class SqlServer
 {
     private const string ConnectionString =
         // important: can't connect to localhost, must use IP.
