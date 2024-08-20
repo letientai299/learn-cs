@@ -2,6 +2,15 @@
 
 [The book](https://learning.oreilly.com/library/view/pro-c-10/9781484278697).
 
+As I get more familiar with C# and related tooling, I feel the book's content is
+more and more verbose. For the framework parts (EF, ASP.NET, ADO.NET), I learned
+faster by practice or experiment with some online tutorials and read lib source
+in IDE.
+
+To someone with less knowledge in other programming language and ecosystem, this
+book is great, very detail. However, the sample code aren't in good shapes and
+some patterns might be inefficient.
+
 ## Todo
 
 - [ ] Best practice in organizing class, namespace, folder and sub projects.
@@ -283,7 +292,44 @@ Java, but similar features must exists.
 
 ## Part VII. Entity Framework Core
 
-ch 21 to 24
+### 21. Introducing Entity Framework Corek
+
+Done. Mostly followed MS Learn instead of the book.
+
+### 22. Introducing Entity Framework Corek
+
+> TODO (tai): How EF translate lambda expression to SQL?
+
+```cs
+// this work
+var secondBlog = await ctx.Blogs.OrderBy(b => b.Id).Skip(1).FirstAsync();
+
+// But this get error: Cannot resolve symbol 'FirstAsync'
+var secondBlog = await ctx.Blogs.OrderBy(GetID).Skip(1).FirstAsync();
+```
+
+I can read SQL, but I can't stand how the SQL syntax appear in the book. Full of
+`[]`. SQL Server doesn't make escaping required. Perhaps that's how the query
+look as reported by SQL Server Profiler. But that's too ugly, hard to read. EF
+generated query looks much better.
+
+> TODO (tai): What is equivalent of SS temporal table in PG, mysql?
+
+> TODO (tai): How to do in EF
+>
+> - deals with DB sharding?
+> - cache
+> - change data capture
+> - CQRS
+> - logging, metrics, ...
+
+### 23. Build a Data Access Layer with Entity Framework Core
+
+Skimmed through.
+
+### 24. Test Driving AutoLot
+
+Skipped.
 
 ## Part VIII. Windows Client Development
 
