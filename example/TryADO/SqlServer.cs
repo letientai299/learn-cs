@@ -1,6 +1,8 @@
 ﻿using System.Data;
 using Microsoft.Data.SqlClient;
 
+namespace Example.TryADO;
+
 internal static class SqlServer
 {
     private const string ConnectionString =

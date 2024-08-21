@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Text;
-using Utils;
 using Arg = System.Runtime.CompilerServices.CallerArgumentExpressionAttribute;
 using File = System.Runtime.CompilerServices.CallerFilePathAttribute;
 using Line = System.Runtime.CompilerServices.CallerLineNumberAttribute;
@@ -295,7 +294,9 @@ public static class Logs
         foreach (var v in arr)
         {
             sb.AppendLine(cnt == 0 ? "[" : ", ");
-            sb.Append($"  {cnt, -3} ->  {v}");
+            sb.Append(
+                $"{cnt, -2} -> {Colors.Yellow}{v.GetType()}{Colors.Reset} {v}"
+            );
             cnt++;
         }
         sb.AppendLine(cnt == 0 ? "[]" : "\n]");

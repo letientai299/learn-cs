@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Example.TryEF;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 await using var db = new BloggingContext(LogLevel.Debug);

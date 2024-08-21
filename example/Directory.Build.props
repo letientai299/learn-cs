@@ -1,27 +1,27 @@
 <Project>
+  <!-- Define some common properties to be used in other build scripts -->
+  <PropertyGroup>
+    <SolutionRoot>$(MSBuildThisFileDirectory)</SolutionRoot>
+    <ProjectName>$(MSBuildProjectName)</ProjectName>
+    <_PjRelPath>
+      $([System.IO.Path]::GetRelativePath($(SolutionRoot),$(MSBuildProjectDirectory)))
+    </_PjRelPath>
+    <RootNamespace>Example.$(_PjRelPath.Trim().Replace('\', '.'))</RootNamespace>
+  </PropertyGroup>
+
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>Example.$(ProjectName)</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <InvariantGlobalization>true</InvariantGlobalization>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
-  <!--
-    TODO:
-      learn more about why AOT can't be used with EF,
-      any how to write this conditional config.
-  -->
-  <!--  <PropertyGroup Condition="'$(ProjectName)' != 'TryEF'">-->
-  <!--    <PublishAot>true</PublishAot>-->
-  <!--  </PropertyGroup>-->
-
-  <PropertyGroup Condition="'$(ProjectName)' == 'TryEF'">
-    <PublishAot>false</PublishAot>
+  <PropertyGroup Condition="'$(ProjectName)' != 'Utils'">
+    <OutputType>Exe</OutputType>
   </PropertyGroup>
 
-  <Import Project="./build/versions.props" />
-  <Import Project="./build/deps.props" />
-  <Import Project="./build/analyzers.props" />
+  <Import Project="./build/versions.props"/>
+  <Import Project="./build/deps.props"/>
+  <Import Project="./build/analyzers.props"/>
 </Project>

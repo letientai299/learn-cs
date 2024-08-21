@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 #pragma warning disable 219, 612, 618
 #nullable disable
 
-namespace Example.CompiledModels
+namespace Example.TryEF.CompiledModels
 {
     [DbContext(typeof(BloggingContext))]
     public partial class BloggingContextModel : RuntimeModel

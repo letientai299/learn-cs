@@ -9,14 +9,14 @@ using Microsoft.EntityFrameworkCore.Storage;
 #pragma warning disable 219, 612, 618
 #nullable disable
 
-namespace Example.CompiledModels
+namespace Example.TryEF.CompiledModels
 {
     internal partial class BlogEntityType
     {
         public static RuntimeEntityType Create(RuntimeModel model, RuntimeEntityType baseEntityType = null)
         {
             var runtimeEntityType = model.AddEntityType(
-                "Blog",
+                "Example.TryEF.Blog",
                 typeof(Blog),
                 baseEntityType);
 

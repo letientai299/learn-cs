@@ -1,5 +1,7 @@
 ﻿using Npgsql;
 
+namespace Example.TryADO;
+
 internal static class Pg
 {
     private const string ConnectionString =

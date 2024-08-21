@@ -1,0 +1,31 @@
+﻿@api = http://localhost:5278
+
+### Create a new item
+POST {{api}}/todos
+Content-Type: application/json
+
+{ "name": "todo #1" }
+
+### Create a new done item
+POST {{api}}/todos/
+Content-Type: application/json
+
+{ "name": "done here", "done": true }
+
+### List all
+GET {{api}}/todos
+
+### List done only
+GET {{api}}/todos/done/
+
+### Get one
+GET {{api}}/todos/1
+
+### Update one
+PUT {{api}}/todos/1
+Content-Type: application/json
+
+{
+    "name": "updated at {{$isoTimestamp}}",
+    "done": false
+}

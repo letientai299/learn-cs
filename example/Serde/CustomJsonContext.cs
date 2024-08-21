@@ -1,8 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
-using Example.Serde;
 
-namespace Example;
+namespace Example.Serde;
 
 // TODO (tai): can this be simpler, like a single annotation on the class or record itself?
 [JsonSourceGenerationOptions(WriteIndented = true)]

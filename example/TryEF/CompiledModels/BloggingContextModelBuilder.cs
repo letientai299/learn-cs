@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 #pragma warning disable 219, 612, 618
 #nullable disable
 
-namespace Example.CompiledModels
+namespace Example.TryEF.CompiledModels
 {
     public partial class BloggingContextModel
     {
@@ -32,21 +32,21 @@ namespace Example.CompiledModels
         {
             var relationalModel = new RelationalModel(this);
 
-            var blog = FindEntityType("Blog")!;
+            var blog = FindEntityType("Example.TryEF.Blog")!;
 
             var defaultTableMappings = new List<TableMappingBase<ColumnMappingBase>>();
             blog.SetRuntimeAnnotation("Relational:DefaultMappings", defaultTableMappings);
-            var blogTableBase = new TableBase("Blog", null, relationalModel);
-            var idColumnBase = new ColumnBase<ColumnMappingBase>("Id", "INTEGER", blogTableBase);
-            blogTableBase.Columns.Add("Id", idColumnBase);
-            var urlColumnBase = new ColumnBase<ColumnMappingBase>("Url", "TEXT", blogTableBase);
-            blogTableBase.Columns.Add("Url", urlColumnBase);
-            relationalModel.DefaultTables.Add("Blog", blogTableBase);
-            var blogMappingBase = new TableMappingBase<ColumnMappingBase>(blog, blogTableBase, true);
-            blogTableBase.AddTypeMapping(blogMappingBase, false);
-            defaultTableMappings.Add(blogMappingBase);
-            RelationalModel.CreateColumnMapping((ColumnBase<ColumnMappingBase>)idColumnBase, blog.FindProperty("Id")!, blogMappingBase);
-            RelationalModel.CreateColumnMapping((ColumnBase<ColumnMappingBase>)urlColumnBase, blog.FindProperty("Url")!, blogMappingBase);
+            var exampleTryEFBlogTableBase = new TableBase("Example.TryEF.Blog", null, relationalModel);
+            var idColumnBase = new ColumnBase<ColumnMappingBase>("Id", "INTEGER", exampleTryEFBlogTableBase);
+            exampleTryEFBlogTableBase.Columns.Add("Id", idColumnBase);
+            var urlColumnBase = new ColumnBase<ColumnMappingBase>("Url", "TEXT", exampleTryEFBlogTableBase);
+            exampleTryEFBlogTableBase.Columns.Add("Url", urlColumnBase);
+            relationalModel.DefaultTables.Add("Example.TryEF.Blog", exampleTryEFBlogTableBase);
+            var exampleTryEFBlogMappingBase = new TableMappingBase<ColumnMappingBase>(blog, exampleTryEFBlogTableBase, true);
+            exampleTryEFBlogTableBase.AddTypeMapping(exampleTryEFBlogMappingBase, false);
+            defaultTableMappings.Add(exampleTryEFBlogMappingBase);
+            RelationalModel.CreateColumnMapping((ColumnBase<ColumnMappingBase>)idColumnBase, blog.FindProperty("Id")!, exampleTryEFBlogMappingBase);
+            RelationalModel.CreateColumnMapping((ColumnBase<ColumnMappingBase>)urlColumnBase, blog.FindProperty("Url")!, exampleTryEFBlogMappingBase);
 
             var tableMappings = new List<TableMapping>();
             blog.SetRuntimeAnnotation("Relational:TableMappings", tableMappings);
@@ -58,7 +58,7 @@ namespace Example.CompiledModels
             var pK_Blogs = new UniqueConstraint("PK_Blogs", blogsTable, new[] { idColumn });
             blogsTable.PrimaryKey = pK_Blogs;
             var pK_BlogsUc = RelationalModel.GetKey(this,
-                "Blog",
+                "Example.TryEF.Blog",
                 new[] { "Id" });
             pK_Blogs.MappedKeys.Add(pK_BlogsUc);
             RelationalModel.GetOrCreateUniqueConstraints(pK_BlogsUc).Add(pK_Blogs);
@@ -70,27 +70,27 @@ namespace Example.CompiledModels
             RelationalModel.CreateColumnMapping(idColumn, blog.FindProperty("Id")!, blogsTableMapping);
             RelationalModel.CreateColumnMapping(urlColumn, blog.FindProperty("Url")!, blogsTableMapping);
 
-            var post = FindEntityType("Post")!;
+            var post = FindEntityType("Example.TryEF.Post")!;
 
             var defaultTableMappings0 = new List<TableMappingBase<ColumnMappingBase>>();
             post.SetRuntimeAnnotation("Relational:DefaultMappings", defaultTableMappings0);
-            var postTableBase = new TableBase("Post", null, relationalModel);
-            var blogIdColumnBase = new ColumnBase<ColumnMappingBase>("BlogId", "INTEGER", postTableBase);
-            postTableBase.Columns.Add("BlogId", blogIdColumnBase);
-            var contentColumnBase = new ColumnBase<ColumnMappingBase>("Content", "TEXT", postTableBase);
-            postTableBase.Columns.Add("Content", contentColumnBase);
-            var idColumnBase0 = new ColumnBase<ColumnMappingBase>("Id", "INTEGER", postTableBase);
-            postTableBase.Columns.Add("Id", idColumnBase0);
-            var titleColumnBase = new ColumnBase<ColumnMappingBase>("Title", "TEXT", postTableBase);
-            postTableBase.Columns.Add("Title", titleColumnBase);
-            relationalModel.DefaultTables.Add("Post", postTableBase);
-            var postMappingBase = new TableMappingBase<ColumnMappingBase>(post, postTableBase, true);
-            postTableBase.AddTypeMapping(postMappingBase, false);
-            defaultTableMappings0.Add(postMappingBase);
-            RelationalModel.CreateColumnMapping((ColumnBase<ColumnMappingBase>)idColumnBase0, post.FindProperty("Id")!, postMappingBase);
-            RelationalModel.CreateColumnMapping((ColumnBase<ColumnMappingBase>)blogIdColumnBase, post.FindProperty("BlogId")!, postMappingBase);
-            RelationalModel.CreateColumnMapping((ColumnBase<ColumnMappingBase>)contentColumnBase, post.FindProperty("Content")!, postMappingBase);
-            RelationalModel.CreateColumnMapping((ColumnBase<ColumnMappingBase>)titleColumnBase, post.FindProperty("Title")!, postMappingBase);
+            var exampleTryEFPostTableBase = new TableBase("Example.TryEF.Post", null, relationalModel);
+            var blogIdColumnBase = new ColumnBase<ColumnMappingBase>("BlogId", "INTEGER", exampleTryEFPostTableBase);
+            exampleTryEFPostTableBase.Columns.Add("BlogId", blogIdColumnBase);
+            var contentColumnBase = new ColumnBase<ColumnMappingBase>("Content", "TEXT", exampleTryEFPostTableBase);
+            exampleTryEFPostTableBase.Columns.Add("Content", contentColumnBase);
+            var idColumnBase0 = new ColumnBase<ColumnMappingBase>("Id", "INTEGER", exampleTryEFPostTableBase);
+            exampleTryEFPostTableBase.Columns.Add("Id", idColumnBase0);
+            var titleColumnBase = new ColumnBase<ColumnMappingBase>("Title", "TEXT", exampleTryEFPostTableBase);
+            exampleTryEFPostTableBase.Columns.Add("Title", titleColumnBase);
+            relationalModel.DefaultTables.Add("Example.TryEF.Post", exampleTryEFPostTableBase);
+            var exampleTryEFPostMappingBase = new TableMappingBase<ColumnMappingBase>(post, exampleTryEFPostTableBase, true);
+            exampleTryEFPostTableBase.AddTypeMapping(exampleTryEFPostMappingBase, false);
+            defaultTableMappings0.Add(exampleTryEFPostMappingBase);
+            RelationalModel.CreateColumnMapping((ColumnBase<ColumnMappingBase>)idColumnBase0, post.FindProperty("Id")!, exampleTryEFPostMappingBase);
+            RelationalModel.CreateColumnMapping((ColumnBase<ColumnMappingBase>)blogIdColumnBase, post.FindProperty("BlogId")!, exampleTryEFPostMappingBase);
+            RelationalModel.CreateColumnMapping((ColumnBase<ColumnMappingBase>)contentColumnBase, post.FindProperty("Content")!, exampleTryEFPostMappingBase);
+            RelationalModel.CreateColumnMapping((ColumnBase<ColumnMappingBase>)titleColumnBase, post.FindProperty("Title")!, exampleTryEFPostMappingBase);
 
             var tableMappings0 = new List<TableMapping>();
             post.SetRuntimeAnnotation("Relational:TableMappings", tableMappings0);
@@ -106,7 +106,7 @@ namespace Example.CompiledModels
             var pK_Posts = new UniqueConstraint("PK_Posts", postsTable, new[] { idColumn0 });
             postsTable.PrimaryKey = pK_Posts;
             var pK_PostsUc = RelationalModel.GetKey(this,
-                "Post",
+                "Example.TryEF.Post",
                 new[] { "Id" });
             pK_Posts.MappedKeys.Add(pK_PostsUc);
             RelationalModel.GetOrCreateUniqueConstraints(pK_PostsUc).Add(pK_Posts);
@@ -114,7 +114,7 @@ namespace Example.CompiledModels
             var iX_Posts_BlogId = new TableIndex(
             "IX_Posts_BlogId", postsTable, new[] { blogIdColumn }, false);
             var iX_Posts_BlogIdIx = RelationalModel.GetIndex(this,
-                "Post",
+                "Example.TryEF.Post",
                 new[] { "BlogId" });
             iX_Posts_BlogId.MappedIndexes.Add(iX_Posts_BlogIdIx);
             RelationalModel.GetOrCreateTableIndexes(iX_Posts_BlogIdIx).Add(iX_Posts_BlogId);
@@ -132,9 +132,9 @@ namespace Example.CompiledModels
                 new[] { blogIdColumn },
                 blogsTable.FindUniqueConstraint("PK_Blogs")!, ReferentialAction.Cascade);
             var fK_Posts_Blogs_BlogIdFk = RelationalModel.GetForeignKey(this,
-                "Post",
+                "Example.TryEF.Post",
                 new[] { "BlogId" },
-                "Blog",
+                "Example.TryEF.Blog",
                 new[] { "Id" });
             fK_Posts_Blogs_BlogId.MappedForeignKeys.Add(fK_Posts_Blogs_BlogIdFk);
             RelationalModel.GetOrCreateForeignKeyConstraints(fK_Posts_Blogs_BlogIdFk).Add(fK_Posts_Blogs_BlogId);

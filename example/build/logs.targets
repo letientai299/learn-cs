@@ -1,0 +1,9 @@
+﻿<Project>
+  <Target Name="MyLog" BeforeTargets="Restore">
+    <Message Text="MyLog | MSBuildStartupDirectory = $(MSBuildStartupDirectory)" Importance="high" />
+    <Message Text="MyLog | ProjectName = $(ProjectName)" Importance="high" />
+    <Message Text="MyLog | SolutionRoot = $(SolutionRoot)" Importance="high" />
+    <Message Text="MyLog | RootNamespace = $(RootNamespace)" Importance="high" />
+    <Message Text="MyLog | MyPath = $([System.IO.Path]::GetRelativePath($(SolutionRoot), $(MSBuildProjectDirectory)))" Importance="high" />
+  </Target>
+</Project>

@@ -1,4 +1,5 @@
 ﻿UseDisposeAsDefer();
+
 return;
 
 static void UseDisposeAsDefer()

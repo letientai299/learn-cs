@@ -1,6 +1,4 @@
-﻿using static Utils.Colors;
-
-namespace Example;
+﻿namespace Example.DumpShell;
 
 internal static class Program
 {
@@ -28,10 +26,10 @@ internal static class Program
 
     private static string Input()
     {
-        Write(Blue);
+        Write(Colors.Blue);
         Prompt();
         var cmd = ReadLine() ?? string.Empty;
-        Write(Reset);
+        Write(Colors.Reset);
         return cmd;
     }
 
@@ -106,10 +104,8 @@ internal static class Program
         }
     }
 
-    private static bool IsDir(FileSystemInfo item)
-    {
-        return (item.Attributes & FileAttributes.Directory) != 0;
-    }
+    private static bool IsDir(FileSystemInfo item) =>
+        (item.Attributes & FileAttributes.Directory) != 0;
 
     private static void Cd(params string[] args)
     {

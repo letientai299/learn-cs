@@ -1,5 +1,7 @@
 ﻿using MySqlConnector;
 
+namespace Example.TryADO;
+
 public static class MySql
 {
     private const string ConnectionString =

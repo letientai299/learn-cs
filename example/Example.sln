@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TryEF", "TryEF\TryEF.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Play", "Play\Play.csproj", "{17D62ADB-B906-4235-A885-C4265FBF27A8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "APIs", "APIs", "{B7E5B8A9-AA49-4196-AA73-E2B1358C1108}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimal", "APIs\Minimal\Minimal.csproj", "{7F257BD7-684C-40F4-88D4-9CFB19033112}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,11 +55,18 @@ Global
 		{17D62ADB-B906-4235-A885-C4265FBF27A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17D62ADB-B906-4235-A885-C4265FBF27A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17D62ADB-B906-4235-A885-C4265FBF27A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F257BD7-684C-40F4-88D4-9CFB19033112}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F257BD7-684C-40F4-88D4-9CFB19033112}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F257BD7-684C-40F4-88D4-9CFB19033112}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F257BD7-684C-40F4-88D4-9CFB19033112}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8DA9B7B9-EA73-4019-833A-59E80AEFED98}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7F257BD7-684C-40F4-88D4-9CFB19033112} = {B7E5B8A9-AA49-4196-AA73-E2B1358C1108}
 	EndGlobalSection
 EndGlobal

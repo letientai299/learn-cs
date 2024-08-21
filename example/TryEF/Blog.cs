@@ -1,6 +1,8 @@
-﻿using Example.CompiledModels;
+﻿using Example.TryEF.CompiledModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+
+namespace Example.TryEF;
 
 // ReSharper disable UnusedMember.Global
 // ReSharper disable PropertyCanBeMadeInitOnly.Global
