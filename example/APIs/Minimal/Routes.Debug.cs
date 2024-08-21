@@ -6,6 +6,9 @@ internal static partial class Routes
     {
         var group = app.MapGroup("/debug");
         group.MapGet("/", Whatever);
+
+        group.MapGet("/err", _ => throw new ArgumentException("some"));
+
         group.MapGet("/routes", ListRoutes);
     }
 
@@ -16,13 +19,20 @@ internal static partial class Routes
     // private static IResult ListRoutes(List<EndpointDataSource> ds)
     // private static IResult ListRoutes(ICollection<EndpointDataSource> ds)
     // but this is ok?
-    private static IResult ListRoutes(IEnumerable<EndpointDataSource> ds)
+    private static IResult ListRoutes(
+        IEnumerable<EndpointDataSource> ds,
+        IWebHostEnvironment env,
+        ILogger<Todo> lg
+    )
     {
-        var data =
+        var data = (
             from d in ds.ToList()
             from path in d.Endpoints
-            select path.DisplayName;
+            select path.DisplayName
+        ).ToArray();
 
-        return Results.Ok(new { endpoints = data });
+        lg.LogInformation(string.Join("\n", data));
+
+        return Results.Ok(new { endpoints = data, env });
     }
 }

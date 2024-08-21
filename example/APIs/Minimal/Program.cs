@@ -19,7 +19,8 @@ builder
     // Some exploration about why was AddEndpointsApiExplorer added.
     // https://stackoverflow.com/a/71933300/3869533
     .AddEndpointsApiExplorer()
-    .AddSwaggerGen();
+    .AddSwaggerGen()
+    .AddHealthChecks();
 
 var app = builder.Build();
 
@@ -29,8 +30,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseFileServer();
+app.UseExceptionHandler("/errors");
 app.UseStaticFiles();
+app.UseDirectoryBrowser();
+
+app.UseHealthChecks("/sys/health");
 
 Routes.Todos(app);
 Routes.Debug(app);
