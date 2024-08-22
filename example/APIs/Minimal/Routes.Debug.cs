@@ -25,13 +25,12 @@ internal static partial class Routes
         ILogger<Todo> lg
     )
     {
-        var data = (
+        var data =
             from d in ds.ToList()
             from path in d.Endpoints
-            select path.DisplayName
-        ).ToArray();
+            select path.DisplayName;
 
-        lg.LogInformation(string.Join("\n", data));
+        lg.LogInformation("{Data}", data);
 
         return Results.Ok(new { endpoints = data, env });
     }

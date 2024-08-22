@@ -231,7 +231,7 @@ public static class Logs
             (arg9, a9)
         );
 
-    private static void Print(
+    public static void Print(
         string path,
         int line,
         params (string, dynamic?)[] args
