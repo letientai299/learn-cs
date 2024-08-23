@@ -1,5 +1,5 @@
 using Example.APIs.Minimal;
-using Microsoft.AspNetCore.Routing.Template;
+using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.EntityFrameworkCore;
 
 var loggerFactory = LoggerFactory.Create(b =>
@@ -17,18 +17,17 @@ builder
 
 builder
     .Services
-    // .AddSingleton(builder.Services)
-    // .AddHostedService<Inspector>()
     // Some exploration about why was AddEndpointsApiExplorer added.
     // https://stackoverflow.com/a/71933300/3869533
     .AddEndpointsApiExplorer()
     .AddSwaggerGen()
+    .AddHttpLogging(logging =>
+    {
+        logging.LoggingFields = HttpLoggingFields.All;
+    })
     .AddHealthChecks();
 
 var app = builder.Build();
-
-// https://rimdev.io/asp-net-core-routes-middleware
-app.UseRouting();
 
 if (app.Environment.IsDevelopment())
 {
@@ -36,23 +35,23 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseHttpLogging();
 app.UseExceptionHandler("/errors");
 app.UseStaticFiles();
 app.UseDirectoryBrowser();
 app.UseHealthChecks("/sys/health");
 
+// https://rimdev.io/asp-net-core-routes-middleware
+app.UseRouting();
+
 Routes.Todos(app);
 Routes.Debug(app);
-
-var scope = ((IApplicationBuilder)app).ApplicationServices.CreateScope();
-var ss = scope.ServiceProvider.GetServices<TemplateBinder>();
-Log(ss);
-#pragma warning disable S6966
-// app.Run();
+Routes.NotFound(app);
 
 var middlewares = app.GetMiddlewares();
 Log(middlewares);
+
+#pragma warning disable S6966
+app.Run();
+
 Header("done");
-
-
-// https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/webapplication?view=aspnetcore-8.0#access-the-dependency-injection-di-container
