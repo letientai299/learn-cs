@@ -19,6 +19,7 @@ builder
     .Services
     // Some exploration about why was AddEndpointsApiExplorer added.
     // https://stackoverflow.com/a/71933300/3869533
+    // Without AddEndpointsApiExplorer, swagger gen won't work.
     .AddEndpointsApiExplorer()
     .AddSwaggerGen()
     .AddHttpLogging(logging =>

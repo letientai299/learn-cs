@@ -10,6 +10,9 @@ Note, code samples and utils while learning C#.
   - [ ] `Directory.Build.Props`, nested?
     - Why can't we build `./example/APIs/Minimal` using `dotnet build` within
       that folder?
+- [ ] Create and manage repo level custom project templates using Rider.
+- [ ] Report, contribute reproduce and possibly fix `dotnet-watch` duplicated
+      endpoints bugs https://github.com/dotnet/aspnetcore/issues/44857
 
 ## Dependency Injection
 

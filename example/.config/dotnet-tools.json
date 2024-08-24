@@ -15,6 +15,13 @@
         "roslynator"
       ],
       "rollForward": false
+    },
+    "dotnet-aspnet-codegenerator": {
+      "version": "8.0.4",
+      "commands": [
+        "dotnet-aspnet-codegenerator"
+      ],
+      "rollForward": false
     }
   }
 }
