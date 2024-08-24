@@ -1,4 +1,17 @@
 <Project>
+  <Choose>
+    <When Condition="$([MSBuild]::IsOSUnixLike())">
+      <PropertyGroup>
+        <_PathSep>/</_PathSep>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <_PathSep>\</_PathSep>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+
   <!-- Define some common properties to be used in other build scripts -->
   <PropertyGroup>
     <SolutionRoot>$(MSBuildThisFileDirectory)</SolutionRoot>
@@ -6,7 +19,10 @@
     <_PjRelPath>
       $([System.IO.Path]::GetRelativePath($(SolutionRoot),$(MSBuildProjectDirectory)))
     </_PjRelPath>
-    <RootNamespace>Example.$(_PjRelPath.Trim().Replace('\', '.'))</RootNamespace>
+    <!--    <RootNamespace>Example.$(_PjRelPath.Trim().Replace(Path.PathSeparator, '.'))</RootNamespace>-->
+    <RootNamespace>
+      Example.$(_PjRelPath.Trim().Replace('$(_PathSep)', '.') )
+    </RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup>
