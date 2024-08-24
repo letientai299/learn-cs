@@ -1,0 +1,13 @@
+@api = http://localhost:8080/api
+
+### Debug  - list routes
+GET {{api}}/debug
+
+### Hello
+< {%
+    request.variables.set("name", "some");
+%}
+
+GET {{api}}/hello/{{name}}
+    ?prefix=Xin chao
+    &cnt=10

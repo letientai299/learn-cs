@@ -8,11 +8,12 @@ public class Hello : ControllerBase
 {
     [HttpGet("{name?}")]
     public IEnumerable<string> Get(
-        string? name = "world",
+        string name = "world",
         [FromQuery(Name = "cnt")] int count = 1,
         [FromQuery(Name = "prefix")] string prefix = "Hello"
-    ) =>
-        Enumerable
-            .Range(1, count)
-            .Select(_ => $"{prefix} {name}, at {DateTime.Now}");
+    )
+    {
+        var msg = $"[{TimeOnly.FromDateTime(DateTime.Now)}] {prefix} {name}";
+        return Enumerable.Range(1, count).Select(i => $"[{i, 2}]{msg}");
+    }
 }
