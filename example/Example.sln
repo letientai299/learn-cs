@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DumpShell", "Read.CSharp.Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileWatching", "Read.CSharp.Pro\FileWatching\FileWatching.csproj", "{BEE93DF3-3C3C-47AC-B5CB-510494A0F30B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "auto-fac", "Libs.3rd\auto-fac\auto-fac.csproj", "{F4E54648-A932-4D8B-A8B6-AF96E712B781}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{BEE93DF3-3C3C-47AC-B5CB-510494A0F30B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEE93DF3-3C3C-47AC-B5CB-510494A0F30B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEE93DF3-3C3C-47AC-B5CB-510494A0F30B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4E54648-A932-4D8B-A8B6-AF96E712B781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4E54648-A932-4D8B-A8B6-AF96E712B781}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4E54648-A932-4D8B-A8B6-AF96E712B781}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4E54648-A932-4D8B-A8B6-AF96E712B781}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,5 +97,6 @@ Global
 		{6004C2B9-BED4-4825-978F-5310E07DE36D} = {569BD065-6007-4B7A-91E0-B580258433D9}
 		{C6D0C656-1218-4FFB-8DF0-B530083B826C} = {569BD065-6007-4B7A-91E0-B580258433D9}
 		{BEE93DF3-3C3C-47AC-B5CB-510494A0F30B} = {569BD065-6007-4B7A-91E0-B580258433D9}
+		{F4E54648-A932-4D8B-A8B6-AF96E712B781} = {AA97956D-6DD1-4D51-A4A1-C55959F4D6DF}
 	EndGlobalSection
 EndGlobal

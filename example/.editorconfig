@@ -282,3 +282,6 @@ dotnet_diagnostic.SA1402.severity = none
 # Parameter names should match base declaration and other partial definitions
 # No, I don't think it's necessary
 dotnet_diagnostic.S927.severity = none
+
+# First type name should match file name.
+dotnet_diagnostic.SA1649.severity = none
