@@ -32,8 +32,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "auto-fac", "Libs.3rd\auto-fac\auto-fac.csproj", "{F4E54648-A932-4D8B-A8B6-AF96E712B781}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Metrics", "Metrics", "{0D2CDA14-EDBC-45CE-A70A-DCD851BEB045}"
+	ProjectSection(SolutionItems) = preProject
+		Metrics\readme.md = Metrics\readme.md
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instru", "Metrics\Instru\Instru.csproj", "{A1F34E02-464B-47FE-BF0A-DF1AC34A466C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collect", "Metrics\Collect\Collect.csproj", "{EF22962E-FD61-4611-91A6-9D2DCF377AEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +94,10 @@ Global
 		{A1F34E02-464B-47FE-BF0A-DF1AC34A466C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1F34E02-464B-47FE-BF0A-DF1AC34A466C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1F34E02-464B-47FE-BF0A-DF1AC34A466C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF22962E-FD61-4611-91A6-9D2DCF377AEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF22962E-FD61-4611-91A6-9D2DCF377AEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF22962E-FD61-4611-91A6-9D2DCF377AEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF22962E-FD61-4611-91A6-9D2DCF377AEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -107,5 +116,6 @@ Global
 		{BEE93DF3-3C3C-47AC-B5CB-510494A0F30B} = {569BD065-6007-4B7A-91E0-B580258433D9}
 		{F4E54648-A932-4D8B-A8B6-AF96E712B781} = {AA97956D-6DD1-4D51-A4A1-C55959F4D6DF}
 		{A1F34E02-464B-47FE-BF0A-DF1AC34A466C} = {0D2CDA14-EDBC-45CE-A70A-DCD851BEB045}
+		{EF22962E-FD61-4611-91A6-9D2DCF377AEE} = {0D2CDA14-EDBC-45CE-A70A-DCD851BEB045}
 	EndGlobalSection
 EndGlobal

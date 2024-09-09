@@ -9,11 +9,13 @@ internal static class Instru
 {
     private static int observed = 100;
 
-    public static void Main()
+    internal static void Main() => Instrument();
+
+    private static void Instrument()
     {
         var meter = new Meter("hats");
         var cnt = meter.CreateCounter<int>("sold");
-        var rnd = new Random();
+        var rnd = Random.Shared;
 
         var observable = meter.CreateObservableCounter(
             "sold.observed",
